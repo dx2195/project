@@ -94,29 +94,47 @@ class Squirrel(models.Model):
         max_length=200,
     )
 
-    running = models.BooleanField(
+    T = 'TRUE'
+    F = 'FALSE'
+
+    TF_CHOICES = (
+        (T, 'TRUE'),
+        (F, 'FALSE'),
+    )
+
+    running = models.CharField(
         help_text=_('Whether the squirrel was seen running'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
-    chasing = models.BooleanField(
+    chasing = models.CharField(
         help_text=_('Whether the squirrel was seen chasing another squirrel'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
-    climbing = models.BooleanField(
+    climbing = models.CharField(
         help_text=_('Whether the squirrel was seen climbing'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
-    eating = models.BooleanField(
+    eating = models.CharField(
         help_text=_('Whether the squirrel was seen eating'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
-    foraging = models.BooleanField(
+    foraging = models.CharField(
         help_text=_('Whether the squirrel was seen foraging for food'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
     other_activities = models.CharField(
@@ -124,44 +142,60 @@ class Squirrel(models.Model):
         max_length=200,
     )
 
-    kuks = models.BooleanField(
+    kuks = models.CharField(
         help_text=_('Whether the squirrel was heard kukking'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
-    quaas = models.BooleanField(
+    quaas = models.CharField(
         help_text=_('Whether the squirrel was heard quaaing'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
-    moans = models.BooleanField(
+    moans = models.CharField(
         help_text=_('Whether the squirrel was heard moaning'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
-    tail_flags = models.BooleanField(
+    tail_flags = models.CharField(
         help_text=_('Whether the squirrel was seen flagging tail'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
-    tail_twitches = models.BooleanField(
+    tail_twitches = models.CharField(
         help_text=_('Whether the squirrel was seen twitching tail'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
-    approaches = models.BooleanField(
+    approaches = models.CharField(
         help_text=_('Whether the squirrel was seen approaching human'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
-    indifferent = models.BooleanField(
+    indifferent = models.CharField(
         help_text=_('Whether the squirrel was indifferent to human'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
-    runs_from = models.BooleanField(
+    runs_from = models.CharField(
         help_text=_('Whether the squirrel was seen running from human'),
-        default=False,
+        max_length=10,
+        choices=TF_CHOICES,
+        default=F,
     )
 
     def __str__(self):
