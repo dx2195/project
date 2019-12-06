@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 from tracker.models import Squirrel
 import csv
-import datetime as dt
+import datetime
 
 class Command(BaseCommand):
     help = 'Import 2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv'
