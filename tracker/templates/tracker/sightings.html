@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+	{% if sightings %}
+        <h1>
+		All Squirrel Sightings in Central Park
+	</h1>
+        <ul>
+		{% for squirrel in sightings %}
+		<li>
+			<a href = "/tracker/sightings/{{ squirrel.unique_squirrel_id }}">{{ squirrel.unique_squirrel_ID }}
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+	<p>
+	        No squirrel data available.
+	</p>
+	{% endif %}
+    </body>
+</html>
