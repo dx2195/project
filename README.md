@@ -17,7 +17,7 @@ Five views are included:
 Project Group 48, Section 2
 
 # UNI for Each Member
-UNIs: [mw3382,]
+UNIs: [mw3382, dx2195]
 
 # Link to the Server
 https://clean-utility-254123.appspot.com/tracker/sightings/
