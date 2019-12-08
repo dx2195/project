@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+    <body>
+	<h1>
+	    General stats about the sightings
+	</h1>
+	
+        {% for key, value in shift_stats.items %}
+	    <p>{{key}} : {{value}}</p>
+	{% endfor %}
+	<a href = "/tracker/sightings/"><input type = "button" value = "Back to all sightings"></a>
+    </body>
+</html>
