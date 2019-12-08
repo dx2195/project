@@ -27,6 +27,19 @@ def update(request, unique_squirrel_ID):
     }
     return render(request, 'tracker/update.html', context)
 
+def create(request):
+    if request.method == 'POST':
+        form = SquirrelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/tracker/sightings/{unique_squirrel_ID}')
+    else:
+        form = SquirrelForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'tracker/create.html', context)
+
 def map(request):
     sightings = Squirrel.objects.all()[:100]
     context = {
