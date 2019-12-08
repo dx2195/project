@@ -42,18 +42,18 @@ def create(request):
     return render(request, 'tracker/create.html', context)
 
 def stats(request):
-    shift_stats = Squirrel.objects.values('shift').order_by('shift').annotate(shift_count = Count('shift'))
-    age_stats = Squirrel.objects.values('age').order_by('age').annotate(age_count = Count('age'))
-    primary_fur_color_stats = Squirrel.objects.values('primary_fur_color').order_by('primary_fur_color').annotate(primary_fur_color_count = Count('primary_fur_color'))
-    location_stats = Squirrel.objects.values('location').order_by('location').annotate(location_count = Count('location'))
-    running_stats = Squirrel.objects.values('running').order_by('running').annotate(running_count = Count('running'))
+    total_sightings = Squirrel.objects.count()
+    shift_stats = Squirrel.objects.values('shift').annotate(shift_count = Count('shift')).order_by('shift')
+    age_stats = Squirrel.objects.values('age').annotate(age_count = Count('age')).order_by('age')
+    primary_fur_color_stats = Squirrel.objects.values('primary_fur_color').annotate(primary_fur_color_count = Count('primary_fur_color')).order_by('primary_fur_color')
+    location_stats = Squirrel.objects.values('location').annotate(location_count = Count('location')).order_by('location')
 
     context = {
+        'total_sightings': total_sightings,
         'shift_stats': shift_stats,
         'age_stats': age_stats,
         'primary_fur_color_stats': primary_fur_color_stats,
         'location_stats': location_stats,
-        'running_stats': running_stats,
     }
     return render(request, 'tracker/stats.html', context)
 
