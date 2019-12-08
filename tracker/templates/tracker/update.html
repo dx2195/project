@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <body>
+	<h1>
+	    Update a particular sighting {{ form.instance.unique_squirrel_ID }}
+	</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" name="Submit">
+        </form>
+	<a href = "/tracker/sightings/">Back to all sightings</a>
+    </body>
+</html>
