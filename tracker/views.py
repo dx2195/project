@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Squirrel
 from .forms import SquirrelForm
@@ -12,13 +12,13 @@ def sightings(request):
     return render(request, 'tracker/sightings.html', context)
 
 def update(request, unique_squirrel_ID):
-    squirrel = Squirrel.objects.get(unique_squirrel_ID = unique_squirrel_ID)
+    squirrel = get_object_or_404(Squirrel, pk = unique_squirrel_ID)
     if request.method == 'POST':
         # check data with form
         form = SquirrelForm(request.POST, instance = squirrel)
         if form.is_valid():
             form.save()
-            return redirect(f'/sightings/{unique_squirrel_ID}')
+            return redirect(f'/tracker/sightings/{unique_squirrel_ID}')
     else:
         # build empty form
         form = SquirrelForm(instance = squirrel)
