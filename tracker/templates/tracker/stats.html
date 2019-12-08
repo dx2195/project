@@ -4,10 +4,39 @@
 	<h1>
 	    General stats about the sightings
 	</h1>
-	
-        {% for key, value in shift_stats.items %}
-	    <p>{{key}} : {{value}}</p>
+
+	<h2>
+	    The total number of sightings are {{total_sightings}}
+	</h2>
+
+	<h2>
+	    Shift
+	</h2>
+        {% for data in shift_stats %}
+	    <p>{{data.shift}}: {{data.shift_count}}</p>
 	{% endfor %}
+	
+	<h2>
+            Age
+        </h2>
+        {% for data in age_stats %}
+            <p>{{data.age}}: {{data.age_count}}</p>
+        {% endfor %}
+	
+	<h2>
+            Primary fur color
+        </h2>
+        {% for data in primary_fur_color_stats %}
+            <p>{{data.primary_fur_color}}: {{data.primary_fur_color_count}}</p>
+        {% endfor %}
+
+	<h2>
+            Location
+        </h2>
+        {% for data in location_stats %}
+            <p>{{data.location}}: {{data.location_count}}</p>
+        {% endfor %}
+
 	<a href = "/tracker/sightings/"><input type = "button" value = "Back to all sightings"></a>
     </body>
 </html>
