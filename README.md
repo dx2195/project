@@ -19,5 +19,5 @@ Project Group 48, Section 2
 # UNI for Each Member
 UNIs: [mw3382, dx2195]
 
-# Link to the Server
+# Link to the App Server
 https://clean-utility-254123.appspot.com/tracker/sightings/
